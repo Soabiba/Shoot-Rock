@@ -31,12 +31,37 @@ void Level::UpdateGame(void)
         {
             if (enemy[i].active)
             {
-                enemy[i].rect.y += enemy[i].speed.y;
-
-                if (enemy[i].rect.y > screenHeight)
+                if (enemy[i].direction == 1) 
                 {
-                    enemy[i].rect.x = (float)GetRandomValue(0, screenWidth);
-                    enemy[i].rect.y = (float)GetRandomValue(-screenHeight, -20);
+                    enemy[i].rect.x += enemy[i].speed.x;
+                    enemy[i].rect.y += enemy[i].speed.y;
+
+                    if (enemy[i].rect.x > screenWidth || enemy[i].rect.y > screenHeight)
+                    {
+                        enemy[i].rect.x = 0;
+                        enemy[i].rect.y = (float)GetRandomValue(0, screenHeight);
+                    }
+                }
+                if (enemy[i].direction == 0)
+                {
+                    enemy[i].rect.y += enemy[i].speed.y;
+
+                    if (enemy[i].rect.y > screenHeight)
+                    {
+                        enemy[i].rect.x = (float)GetRandomValue(0, screenWidth);
+                        enemy[i].rect.y = (float)GetRandomValue(-screenHeight, -20);
+                    }
+                }
+                if (enemy[i].direction == 2)
+                {
+                    enemy[i].rect.x -= enemy[i].speed.x;
+                    enemy[i].rect.y += enemy[i].speed.y;
+
+                    if (enemy[i].rect.x > screenWidth || enemy[i].rect.y > screenHeight)
+                    {
+                        enemy[i].rect.x = (float)GetRandomValue(0, screenWidth);
+                        enemy[i].rect.y = (float)screenHeight;
+                    }
                 }
             }
         }

@@ -17,7 +17,6 @@ void Level::InitGame(void)
     game.enemiesKill = 0;
     game.chargeTime = 1;
     game.highScore = 0;
-
     game.comboBonus = 0;
     game.collectedFromSameEnemy = 0;
     game.pointsTimer = 0;
@@ -45,6 +44,7 @@ void Level::InitGame(void)
         enemy[i].speed.y = ENEMY_SPEED;
         enemy[i].active = true;
         enemy[i].color = BLUE;
+        enemy[i].direction = GetRandomValue(0, 2); //1,2 for diagonal, 0 for vertical
     }
 
     // Initialize shoots

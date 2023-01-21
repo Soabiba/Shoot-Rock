@@ -4,7 +4,6 @@ struct Game
 {
     bool gameOver;
     int score;
-
     int shootRate;
     int activeEnemies;
     int activeDiamonds;
@@ -55,6 +54,7 @@ struct Enemy
     Vector2 speed;
     bool active;
     Color color;
+    int direction;
 }; 
 Enemy enemy[NUM_MAX_ENEMIES];
 
