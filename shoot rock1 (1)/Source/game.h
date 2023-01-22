@@ -70,3 +70,13 @@ struct UI
     Sound explosion;
 };
 UI ui;
+
+struct Boom
+{
+    Rectangle rect;
+    bool active;
+    float start_time;
+    float duration;
+};
+
+Boom boom;
